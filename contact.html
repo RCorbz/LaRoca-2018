@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Contact Coach Richard Corbaley | La Roca 2018 Elite</title>
+<link rel="icon" type="image/png" href="allattackisaac.png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -120,6 +121,29 @@
           },
         }
       </script>
+    <script>
+        // Dynamically color the favicon red using HTML5 Canvas
+        window.addEventListener('load', () => {
+            const img = new Image();
+            img.src = 'allattackisaac.png';
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                
+                ctx.drawImage(img, 0, 0);
+                // Apply La Roca Red color over the non-transparent pixels
+                // (Change 'source-in' to 'multiply' if the image is a photo)
+                ctx.globalCompositeOperation = 'source-in'; 
+                ctx.fillStyle = '#af101a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                const favicon = document.querySelector('link[rel="icon"]');
+                if (favicon) favicon.href = canvas.toDataURL('image/png');
+            };
+        });
+    </script>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
@@ -133,7 +157,7 @@
 <a class="font-body-md text-body-md font-bold text-text-main hover:text-primary transition-colors duration-200" href="#">Coaching</a>
 <a class="font-body-md text-body-md font-bold text-text-main hover:text-primary transition-colors duration-200" href="#">Philosophy</a>
 <a class="font-body-md text-body-md font-bold text-text-main hover:text-primary transition-colors duration-200" href="#">Recruiting</a>
-<button class="bg-primary text-on-primary px-btn-px py-btn-py font-bold transition-all duration-200 ease-in-out active:scale-95 shadow-md">Join Now</button>
+<button onclick="window.location.href='https://app.olliesports.com/tryouts/la-roca-fc/la-roca-fc-salt-lake-city-tryouts-2026'" class="bg-primary text-on-primary px-btn-px py-btn-py font-bold transition-all duration-200 ease-in-out active:scale-95 shadow-md">Join Now</button>
 </nav>
 <button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
@@ -207,7 +231,7 @@
         <h4 class="font-label-sm text-label-sm uppercase mb-2">Philosophy</h4>
         <p class="font-body-md font-bold">Maximum Effort, No Regrets.</p>
 </div>
-<div class="bg-surface-container p-6 border-l-2 border-primary">
+<div onclick="window.open('https://maps.app.goo.gl/6xzfLaFHffxPfzty7', '_blank')" class="bg-surface-container p-6 border-l-2 border-primary cursor-pointer hover:bg-surface-container-high transition-colors">
         <h4 class="font-label-sm text-label-sm uppercase mb-2">Location</h4>
         <p class="font-body-md font-bold">Draper, UT</p>
 </div>

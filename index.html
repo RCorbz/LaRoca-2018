@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>LA ROCA PREMIER | 2018 Elite Recruiting</title>
+<link rel="icon" type="image/png" href="allattackisaac.png">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -110,6 +111,29 @@
             background-color: #F8FAFC;
         }
     </style>
+    <script>
+        // Dynamically color the favicon red using HTML5 Canvas
+        window.addEventListener('load', () => {
+            const img = new Image();
+            img.src = 'allattackisaac.png';
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                
+                ctx.drawImage(img, 0, 0);
+                // Apply La Roca Red color over the non-transparent pixels
+                // (Change 'source-in' to 'multiply' if the image is a photo)
+                ctx.globalCompositeOperation = 'source-in'; 
+                ctx.fillStyle = '#af101a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                const favicon = document.querySelector('link[rel="icon"]');
+                if (favicon) favicon.href = canvas.toDataURL('image/png');
+            };
+        });
+    </script>
 </head>
 <body class="text-text-main antialiased overflow-x-hidden" data-mode="connect">
 <!-- TopAppBar -->
@@ -123,7 +147,7 @@
 <a class="text-text-muted transition-colors duration-200 hover:text-primary font-label-md text-label-md" href="#">Philosophy</a>
 <a class="text-text-muted transition-colors duration-200 hover:text-primary font-label-md text-label-md" href="#">Recruiting</a>
 </nav>
-<button class="bg-primary text-on-primary font-label-md text-label-md px-btn-px py-btn-py rounded-xl transition-all hover:opacity-80 active:scale-95">
+<button onclick="window.location.href='https://app.olliesports.com/tryouts/la-roca-fc/la-roca-fc-salt-lake-city-tryouts-2026'" class="bg-primary text-on-primary font-label-md text-label-md px-btn-px py-btn-py rounded-xl transition-all hover:opacity-80 active:scale-95">
                 Register Now
             </button>
 </div>
@@ -172,12 +196,12 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest mb-1">Who</p>
-<p class="font-headline-md text-headline-md text-text-main">2018-2019 Birth Year</p>
+<p class="font-headline-md text-headline-md text-text-main">U8 Girls & Boys</p>
 <p class="font-body-md text-body-md text-text-muted">Birth Year 08/1/2018 to 07/31/2019</p>
 </div>
 </div>
 <!-- Column 3 -->
-<div class="flex items-start gap-4 p-stack-md">
+<div onclick="window.open('https://maps.app.goo.gl/6xzfLaFHffxPfzty7', '_blank')" class="flex items-start gap-4 p-stack-md cursor-pointer hover:bg-slate-50 transition-colors rounded-lg">
 <div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-secondary shrink-0">
 <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
 </div>
