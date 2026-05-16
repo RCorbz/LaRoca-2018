@@ -114,6 +114,7 @@
         // Dynamically color the favicon red using HTML5 Canvas
         window.addEventListener('load', () => {
             const img = new Image();
+            img.crossOrigin = "anonymous";
             img.onload = () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = img.width;
