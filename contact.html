@@ -8,7 +8,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         .italic-display {
             font-style: italic;
@@ -125,23 +124,22 @@
         // Dynamically color the favicon red using HTML5 Canvas
         window.addEventListener('load', () => {
             const img = new Image();
-            img.src = 'allattackisaac.png';
             img.onload = () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
-                
                 ctx.drawImage(img, 0, 0);
-                // Apply La Roca Red color over the non-transparent pixels
-                // (Change 'source-in' to 'multiply' if the image is a photo)
                 ctx.globalCompositeOperation = 'source-in'; 
                 ctx.fillStyle = '#af101a';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
                 const favicon = document.querySelector('link[rel="icon"]');
                 if (favicon) favicon.href = canvas.toDataURL('image/png');
             };
+            img.onerror = () => {
+                console.error("Favicon error: Could not load 'allattackisaac.png'. Ensure it exists in the project folder.");
+            };
+            img.src = 'allattackisaac.png';
         });
     </script>
 </head>
@@ -231,7 +229,7 @@
         <h4 class="font-label-sm text-label-sm uppercase mb-2">Philosophy</h4>
         <p class="font-body-md font-bold">Maximum Effort, No Regrets.</p>
 </div>
-<div onclick="window.open('https://maps.app.goo.gl/6xzfLaFHffxPfzty7', '_blank')" class="bg-surface-container p-6 border-l-2 border-primary cursor-pointer hover:bg-surface-container-high transition-colors">
+<div onclick="window.open('https://maps.app.goo.gl/TmK2uXeYTamZyDTB7', '_blank')" class="bg-surface-container p-6 border-l-2 border-primary cursor-pointer hover:bg-surface-container-high transition-colors">
         <h4 class="font-label-sm text-label-sm uppercase mb-2">Location</h4>
         <p class="font-body-md font-bold">Draper, UT</p>
 </div>

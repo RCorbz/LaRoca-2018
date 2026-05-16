@@ -6,7 +6,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -115,23 +114,22 @@
         // Dynamically color the favicon red using HTML5 Canvas
         window.addEventListener('load', () => {
             const img = new Image();
-            img.src = 'allattackisaac.png';
             img.onload = () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = img.width;
                 canvas.height = img.height;
                 const ctx = canvas.getContext('2d');
-                
                 ctx.drawImage(img, 0, 0);
-                // Apply La Roca Red color over the non-transparent pixels
-                // (Change 'source-in' to 'multiply' if the image is a photo)
                 ctx.globalCompositeOperation = 'source-in'; 
                 ctx.fillStyle = '#af101a';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
                 const favicon = document.querySelector('link[rel="icon"]');
                 if (favicon) favicon.href = canvas.toDataURL('image/png');
             };
+            img.onerror = () => {
+                console.error("Favicon error: Could not load 'allattackisaac.png'. Ensure it exists in the project folder.");
+            };
+            img.src = 'allattackisaac.png';
         });
     </script>
 </head>
@@ -251,7 +249,7 @@
 <span class="font-display text-headline-md text-primary-fixed-dim shrink-0">03</span>
 <div>
 <h3 class="font-headline-md text-headline-md mb-2">Effort &amp; Accountability</h3>
-<p class="font-body-md text-body-md text-surface-variant">Industrial-strength work ethic. We demand excellence from ourselves and each other on and off the pitch.</p>
+<p class="font-body-md text-body-md text-surface-variant">Beast-mode work ethic. We demand excellence from ourselves and each other on and off the pitch.</p>
 </div>
 </div>
 </div>
@@ -260,7 +258,7 @@
 </section>
 <!-- Stats Grid (High-end pattern) -->
 <section class="py-24 px-margin-page bg-surface-container-low overflow-hidden relative">
-<div class="max-w-7xl mx-auto"><div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg items-center"><div class="text-center"><div class="font-display text-display text-primary mb-2">3</div><p class="font-label-md text-label-md text-text-muted uppercase">ELITE TOURNAMENTS</p></div><div class="text-center"><div class="font-display text-display text-primary mb-2">Comp/Pre-Academy</div><p class="font-label-md text-label-md text-text-muted uppercase">LEVEL COACHING</p></div><div class="text-center"><div class="font-display text-display text-primary mb-2">Youth 5-15 YR</div><p class="font-label-md text-label-md text-text-muted uppercase">RECRUIT FOCUS</p></div></div></div>
+<div class="max-w-7xl mx-auto"><div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg items-center"><div class="text-center"><div class="font-display text-display text-primary mb-2">3</div><p class="font-label-md text-label-md text-text-muted uppercase">ELITE TOURNAMENTS</p></div><div class="text-center"><div class="font-display text-display text-primary mb-2">Comp/Academy</div><p class="font-label-md text-label-md text-text-muted uppercase">LEVEL COACHING</p></div><div class="text-center"><div class="font-display text-display text-primary mb-2">Youth 5-15 YR</div><p class="font-label-md text-label-md text-text-muted uppercase">RECRUIT FOCUS</p></div></div></div>
 </section>
 </main>
 <!-- Footer -->
